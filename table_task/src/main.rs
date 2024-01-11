@@ -65,8 +65,7 @@ struct Table {
 }
 
 impl Table {
-
-        // creating new instance of table
+    // creating new instance of table
     fn new(no_of_rows: u16, cell_in_row: u16) -> Table {
         Table {
             rows: vec![],
@@ -77,7 +76,7 @@ impl Table {
         }
     }
 
-        // calculating height and width of table based on rows
+    // calculating height and width of table based on rows
     fn calc_height_and_width(&mut self) {
         let table_height: u16 = self.rows.iter().map(|row| row.height_of_row).sum();
         let table_width: u16 = self
@@ -120,7 +119,7 @@ fn main() {
     for row in table.rows.iter() {
         println!("\n-------------------");
         for cell in row.cells.iter() {
-            print!("|{}|", cell.value);
+            print!("| {} |", cell.value);
         }
         println!(
             "<--Height of row : {} and Width of row: {}",
@@ -136,4 +135,5 @@ fn main() {
         "Height of table : {} and Width of table: {}",
         table.height_of_table, table.width_of_table
     );
+    println!("{:#?}", table);
 }

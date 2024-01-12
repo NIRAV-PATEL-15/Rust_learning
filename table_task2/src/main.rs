@@ -50,9 +50,8 @@ impl Row {
         self.width_of_row = total_width;
     }
 }
+
 // Struct representing the table
-
-
 #[derive(Debug,Serialize)]
 struct Table {
     rows: Vec<Row>,
@@ -81,38 +80,48 @@ impl Table {
         self.height_of_table = table_height;
         self.width_of_table = table_width;
     }
-
+//function to change value
     fn change_value(&mut self,row:usize,cell:usize,val:String){
         self.rows[row].cells[cell].value = val.to_string();
+        // recalculating height and width of row
         self.rows[row].calc_height_and_width();
+        // recalculating height and width of table
         self.calc_height_and_width();
     }
 }
 fn main() {
     let no_of_rows = 5;
     let no_of_cells_in_row = 5;
+    // initializing vec<Row> to store rows
     let mut table_vec: Vec<Row> = vec![];
     for _ in 0..no_of_rows {
+        // initializing vec<Cell> to store cells
         let mut row_vec: Vec<Cell> = vec![];
         for _ in 0..no_of_cells_in_row {
+            //storing random value in cells 
             let value = rand::thread_rng().gen_range(0..=100);
             let height = rand::thread_rng().gen_range(1..9) * 10;
             let width = 30;
+            //creating instance of cell
             let cell = Cell::new(value.to_string(), height, width);
             row_vec.push(cell);
         }
+        // creating instance of row
         let mut row: Row = Row::new(row_vec);
         row.calc_height_and_width();
         table_vec.push(row);
     }
+    //creating instance of table
     let mut table = Table::new(table_vec);
     table.calc_height_and_width();
+    
+//changing value of a particular cell
+table.change_value(3, 4, "hello".to_string());
 
-
+//Creating a new json file to store the data
 let file_str = serde_json::to_string_pretty(&table);
 match file_str{
     Ok(file)=>{
-        println!("{}",file);
         fs::write("./data.json", &file).expect("failed to write file");
     }
 

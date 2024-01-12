@@ -32,7 +32,7 @@ The `calculator` program is a Rust implementation of a basic calculator. It perf
 The `serde_json_task` is a Rust program handling JSON serialization and deserialization using the Serde library. It demonstrates how to work with JSON data in Rust.
 
 ## Table Task
-
+The `table_task` and `table_task2` is a Rust program to generate a table using stuctures of Cell,Row and Table.Then generating json file of that data.
 ## Usage
 
 Clone the repository and run each Rust program separately using the following commands:

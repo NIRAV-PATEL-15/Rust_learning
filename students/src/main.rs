@@ -18,24 +18,22 @@ impl Student {
         for i in 0..self.marks.len() {
             total_marks += self.marks[i] as f32;
         }
-       self.percentage = Some(total_marks / self.marks.len() as f32);
+        self.percentage = Some(total_marks / self.marks.len() as f32);
     }
     fn calculate_grade(&mut self) {
-       let grade =  match self.percentage.unwrap() {
-            p if p >= 90.0=> 'A',
-            p if p >= 80.0 =>'B',
-            p if p >= 70.0 =>'C',
-            p if p >= 60.0 =>'D',
-            _ =>'F',
+        let grade = match self.percentage.unwrap() {
+            p if p >= 90.0 => 'A',
+            p if p >= 80.0 => 'B',
+            p if p >= 70.0 => 'C',
+            p if p >= 60.0 => 'D',
+            _ => 'F',
         };
         self.grade = Some(grade);
-
-        
     }
 }
 
 fn main() {
-    let path = "D:/Work/Rust/students/src/StudentData.json";
+    let path = "./src/StudentData.json";
     let file_data = fs::read_to_string(path);
 
     match file_data {
@@ -47,8 +45,7 @@ fn main() {
             }
             let updated_json =
                 serde_json::to_string_pretty(&struct_data).expect("Failed to serialize data");
-            fs::write("D:/Work/Rust/students/src/updated_data.json", &updated_json)
-                .expect("failed to write file");
+            fs::write("./src/updated_data.json", &updated_json).expect("failed to write file");
         }
         Err(_) => {
             println!("failed to read");

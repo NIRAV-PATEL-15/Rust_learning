@@ -32,7 +32,9 @@ The `calculator` program is a Rust implementation of a basic calculator. It perf
 The `serde_json_task` is a Rust program handling JSON serialization and deserialization using the Serde library. It demonstrates how to work with JSON data in Rust.
 
 ## Table Task
+
 The `table_task` and `table_task2` is a Rust program to generate a table using stuctures of Cell,Row and Table.Then generating json file of that data.
+
 ## Usage
 
 Clone the repository and run each Rust program separately using the following commands:
@@ -44,3 +46,18 @@ cargo run --bin area_of_shapes
 cargo run --bin calculator
 cargo run --bin serde_json_task
 cargo run --bin table_task
+cargo run --bin table_task
+```
+
+## Installation
+
+For `rust` scripts you need to install rust <a href="https://www.rust-lang.org/tools/install">download from here</a>
+for reference youtube <a href="https://www.youtube.com/watch?v=-TFH38LYmvo&list=PL6yRaaP0WPkWRsXJgdnw9lj1vchAaKwfS&index=2&pp=iAQB">watch here</a>
+
+## Contributing
+
+Contributions are welcome! Fork the repository, create a new branch, make changes, and submit a pull request. Please adhere to the repository's guidelines.
+
+## License
+
+This repository is licensed under the MIT License. See the LICENSE file for details.
